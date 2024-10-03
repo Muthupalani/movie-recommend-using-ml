@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50%;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #357abd;
+        }
+        .form-box {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .hide {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container form-box" id="form-box">
+        <h1>Movie Recommendation System</h1>
+        <form action="/recommend" method="POST" onsubmit="hideBox()">
+            <label for="title">Movie Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <label for="genre">Preferred Genre (optional):</label>
+            <input type="text" id="genre" name="genre"><br><br>
+            
+            <label for="year">Preferred Year (optional):</label>
+            <input type="text" id="year" name="year"><br><br>
+            
+            <label for="min_rating">Minimum Audience Score:</label>
+            <input type="number" id="min_rating" name="min_rating" value="0" min="0" max="100"><br><br>
+            
+            <input type="submit" value="Get Recommendations">
+        </form>
+    </div>
+
+    <script>
+        function hideBox() {
+            const formBox = document.getElementById('form-box');
+            formBox.classList.add('hide');
+        }
+    </script>
+</body>
+</html>
